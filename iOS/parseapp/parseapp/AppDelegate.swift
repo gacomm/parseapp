@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+
+        let path = NSBundle.mainBundle().pathForResource("parsecreds", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+
+        let appId = dict?.objectForKey("app_id") as! String
+
+        print(appId)
+
+        //tableData = dict!.objectForKey("AppleDevice") as! [String]
+
+        Parse.setApplicationId("fdsfds", clientKey: "fsdfsdfs")
+
+        
+
         return true
     }
 
